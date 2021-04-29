@@ -74,16 +74,16 @@ files are stored now in `/var/cache/polaris`.
 
 The `run-polaris` command can use the following environment variables.
 
-| Variable | Used for | Default value |
-| --- | --- | --- |
-| POLARIS_PORT | Define listen port | 5050 |
-| POLARIS_CONFIG | Optional config file location | |
-| POLARIS_DB | Optional database file location | |
-| POLARIS_CACHE_DIR | Optional cache directory location | /var/cache/polaris |
-| POLARIS_PIDFILE | Optional pid file location (see note) | |
-| POLARIS_LOGFILE | Optional log file location (see note) | |
-| POLARIS_LOGLEVEL | Optional log level between 0 (off) and 3 (debug) | |
-| POLARIS_DAEMONIZE | Run polaris as daemon in container (see note) | false |
+| Variable          | Used for                                         | Default value      |
+|-------------------|--------------------------------------------------|--------------------|
+| POLARIS_PORT      | Define listen port                               | 5050               |
+| POLARIS_CONFIG    | Optional config file location                    |                    |
+| POLARIS_DB        | Optional database file location                  |                    |
+| POLARIS_CACHE_DIR | Optional cache directory location                | /var/cache/polaris |
+| POLARIS_PIDFILE   | Optional pid file location (see note)            |                    |
+| POLARIS_LOGFILE   | Optional log file location (see note)            |                    |
+| POLARIS_LOGLEVEL  | Optional log level between 0 (off) and 3 (debug) |                    |
+| POLARIS_DAEMONIZE | Run polaris as daemon in container (see note)       | false              |
 
 Note: both `POLARIS_PIDFILE` and `POLARIS_LOGFILE` only apply if you set
 `POLARIS_DAEMONIZE` as `true`. This only have sense if you want use this
@@ -104,3 +104,10 @@ docker run -t -i --rm \
 ```
 
 Please note that the `--rm` modifier destroy the container after shell exit.
+
+## Docker compose
+
+The `docker-compose.yml` is an example template of how the `ogarcia/polaris`
+image could be configured. It creates and mounts two named volumes for the
+`cache` and `data` dir and mounts your music collection (`<physical-music-dir>`)
+which should be replaced by your real collection path.

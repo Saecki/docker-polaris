@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  polaris:
+    image: ogarcia/polaris
+    restart: always
+    ports:
+      - 5050:5050
+    volumes:
+      - <physical-music-dir>:/music
+      - polaris-data:/var/lib/polaris
+      - polaris-cache:/var/cache/polaris
+
+volumes:
+  polaris-data:
+  polaris-cache:
+
